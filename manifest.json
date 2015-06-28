@@ -1,0 +1,31 @@
+{
+	"manifest_version":2,
+	"name":"Jailbreak Youtube",
+	"version":"0.1",
+	"description":"No more restrictions on Youtube. Feel free to watch everything, for free.",
+	"permissions":[
+		"tabs",
+        "proxy",
+		"webRequest",
+		"http://*/*",
+		"https://*/*"
+	],
+	"background":{
+		"scripts":[
+			"js/jquery-2.1.4.min.js",
+			"background.js"
+		]
+	},
+	"content_scripts":[
+		{
+		  "matches": ["http://*.youtube.com/*","https://*.youtube.com/*"],
+		  "permissions":["http://*.youtube.com/*","https://*.youtube.com/*"],
+		  "js": ["js/jquery-2.1.4.min.js","js/app.js"],
+		  "run_at": "document_idle"
+		}
+	],
+	"web_accessible_resources":[
+		"js/jquery-2.1.4.min.js",
+		"js/app.js"
+	]
+}
